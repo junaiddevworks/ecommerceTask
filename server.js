@@ -2,6 +2,8 @@ const express = require('express');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./src/config/swagger');
 
+const checkoutRoutes = require('./src/routes/checkoutRoutes');
+
 const app = express();
 
 app.use(express.json());
@@ -12,6 +14,9 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.get('/', (req, res) => {
     res.send('Ecommerce Task Project is running!');
 });
+
+//Route
+app.use('/', checkoutRoutes);
 
 const PORT = process.env.PORT || 8080;
 
