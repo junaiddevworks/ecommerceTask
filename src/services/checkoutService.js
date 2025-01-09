@@ -1,5 +1,5 @@
 const products = require('../models/productCatalogue');
-
+const { calculateDiscountedPrice } = require('../utils/discountCalculator');
 
 exports.calculateTotal = (items) => {
     let total = 0;
@@ -15,16 +15,7 @@ exports.calculateTotal = (items) => {
             const count = itemCounts[id];
             const { price, discount } = product;
 
-            if (discount) {
-                const { quantity, price: discountPrice } = discount;
-                const discountedSets = Math.floor(count/ quantity);
-                const remainingItems = count % quantity;
-
-                total += discountedSets * discountPrice + remainingItems * price;
-            }
-            else {
-                total += count * price;
-            }
+            total += calculateDiscountedPrice(count, price, discount);
         }
     });
     return total;
