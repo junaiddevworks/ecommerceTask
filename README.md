@@ -13,31 +13,39 @@ Testing: Comprehensive unit and integration tests using Jest and Supertest.
 
 1-Clone respository:
     git clone https://github.com/junaiddevworks/ecommerceTask.git
-    cd ecommerceTask
 
-2- Install dependencies:
+2- cd ecommerceTask
+
+3- Install dependencies:
     npm install
 
-3- Start the application:
+4- Start the application:
     npm start
 
-4- Access API documentation:
+5- Access API documentation:
     http://localhost:8080/docs
 
-5- To run the tests:
+6- To run the tests:
     npm test
 
 ## Approach
 1- Created a productModel with the product catalog.
+
 2- Built a discount logic function in utils/discountCalculator.js.
+
 3- Integrated the functionality in a service layer (checkoutService).
+
 4- Set up a controller (checkoutController) for input validation and responses.
+
 5- Added middleware for error handling.
+
 6- Wrote tests for both valid and invalid cases.
 
 ## Improvments
 1- Support for dynamic product catalogs fetched from a database.
+
 2- User authentication.
+
 3- Additional Validation for edge cases.
 
 
