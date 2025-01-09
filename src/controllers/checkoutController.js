@@ -2,7 +2,7 @@ const Joi = require('joi');
 const checkoutService = require('../services/checkoutService');
 
 
-const checkoutSchema = Joi.array().items(Joi.string().length(3).required()).required();
+const checkoutSchema = Joi.array().items(Joi.string().regex(/^\d+$/).length(3).required()).required();
 
 exports.checkout = (req, res, next) => {
   try {
