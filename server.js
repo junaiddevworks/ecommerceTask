@@ -3,6 +3,7 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./src/config/swagger');
 
 const checkoutRoutes = require('./src/routes/checkoutRoutes');
+const errorHandler = require('./src/middlewares/errorHandler');
 
 const app = express();
 
@@ -17,6 +18,8 @@ app.get('/', (req, res) => {
 
 //Route
 app.use('/', checkoutRoutes);
+
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 8080;
 
