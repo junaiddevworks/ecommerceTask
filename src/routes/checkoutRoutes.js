@@ -1,11 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const chechoutService = require('../services/checkoutService');
+const checkoutController = require('../controllers/checkoutController');
 
-router.post('/checkout', (req, res) => {
-    const items = req.body;
-    const total = chechoutService.calculateTotal(items);
-    res.status(200).json({price: total});
-});
+router.post('/checkout', checkoutController.checkout);
 
 module.exports = router;
